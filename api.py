@@ -78,7 +78,6 @@ def perform_actions_continuously(actions):
     global running
     running = True
     while running:
-        time.sleep(int(actions.get('delay', 168)))  # Delay between actions to control the speed of execution
         if actions.get('move_straight'):
             move_straight()
         if actions.get('move_diagonal'):
@@ -96,6 +95,7 @@ def perform_actions_continuously(actions):
 
         # After actions, return to the initial application
         return_to_first_application()
+        time.sleep(int(actions.get('delay', 168)))  # Delay between actions to control the speed of execution
 
 @app.route('/')
 def home():
